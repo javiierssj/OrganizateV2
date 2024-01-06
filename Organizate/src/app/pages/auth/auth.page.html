@@ -1,23 +1,22 @@
-<app-header title="Login"></app-header>
+<app-header title="Iniciar sesion"></app-header>
 <ion-content>
   <div class="d-flex-center">
     <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
       <app-logo></app-logo>
 
-      <app-custom-input icon="mail-outline" autocomplete="email"  [control]="form.controls.email" type="email" label="Correo"></app-custom-input>
+      <app-custom-input icon="mail-outline" autocomplete="email"  [control]="form.controls.email" type="email" label="Ingresa tu correo"></app-custom-input>
       <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
         <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
         <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
       </div>
 
-      <app-custom-input icon="lock-closed-outline" autocomplete="password"  [control]="form.controls.password" type="password" label="Contraseña"></app-custom-input>
+      <app-custom-input icon="lock-closed-outline" autocomplete="password"  [control]="form.controls.password" type="password" label="Ingresa tu contraseña"></app-custom-input>
       <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
         <div *ngIf="form.controls.password.errors?.['required']">La contraseña es requerida</div>
       </div>
 
-      <p routerLink="forgot-password" class="ion-text-end">¿Olvidaste tu contraseña?</p>
-
-      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
+      
+      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid" fill="outline">
         Ingresar
         <ion-icon slot="end" name="log-in-outline"></ion-icon>
       </ion-button>
@@ -25,7 +24,10 @@
       <ion-button class="ion-margin-top" routerLink="sign-up" expand="block" mode="ios" fill="outline">
         Registrate
         <ion-icon slot="end" name="person-add-outline"></ion-icon>
+        
       </ion-button>
+        <p class="ion-text-mid" style="display: inline-block;">No tienes cuenta?&nbsp;</p>
+        <p routerLink="forgot-password" class="ion-text-mid" style="display: inline-block;">Crea una</p>
     </form>
   </div>
 </ion-content>
