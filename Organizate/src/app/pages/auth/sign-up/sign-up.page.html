@@ -22,10 +22,14 @@
         <div *ngIf="form.controls.password.errors?.['minlength']">La contraseñadebe tener al menos 4 caracteres.</div>
       </div>
 
-      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
-        Registrate
-        <ion-icon slot="end" name="log-in-outline"></ion-icon>
+      <ion-button color="tertiary" class="ion-margin-top" routerLink="sign-up" expand="block" mode="ios" fill="outline">
+        <ion-text color="dark">Registrarme</ion-text>
+        <ion-icon color="dark" slot="end" name="person-add-outline"></ion-icon>
+        
       </ion-button>
+
+      <p class="ion-text-mid" style="display: inline-block;">Ya tienes cuenta?&nbsp;</p>
+      <p color="success" routerLink="" class="ion-text-mid" style="display: inline-block; color: blue;">Ingresa aquí.</p>
     </form>
   </div>
 </ion-content>
