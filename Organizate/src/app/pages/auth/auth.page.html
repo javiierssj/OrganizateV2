@@ -16,18 +16,18 @@
       </div>
 
       
-      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid" fill="outline">
-        Ingresar
-        <ion-icon slot="end" name="log-in-outline"></ion-icon>
+      <ion-button color="tertiary" routerLink="home" expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid" fill="outline">
+        <ion-text color="dark">Iniciar sesión</ion-text>
+        <ion-icon color="dark" slot="end" name="log-in-outline"></ion-icon>
       </ion-button>
 
-      <ion-button class="ion-margin-top" routerLink="sign-up" expand="block" mode="ios" fill="outline">
-        Registrate
-        <ion-icon slot="end" name="person-add-outline"></ion-icon>
+      <ion-button color="tertiary" class="ion-margin-top" routerLink="sign-up" expand="block" mode="ios" fill="outline">
+        <ion-text color="dark">Registrarme</ion-text>
+        <ion-icon color="dark" slot="end" name="person-add-outline"></ion-icon>
         
       </ion-button>
         <p class="ion-text-mid" style="display: inline-block;">No tienes cuenta?&nbsp;</p>
-        <p routerLink="forgot-password" class="ion-text-mid" style="display: inline-block;">Crea una</p>
+        <p color="success" routerLink="forgot-password" class="ion-text-mid" style="display: inline-block; color: blue;">Crea una</p>
     </form>
   </div>
 </ion-content>
