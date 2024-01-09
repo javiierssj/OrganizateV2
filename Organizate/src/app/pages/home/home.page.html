@@ -1,7 +1,56 @@
-<app-header title="Inicio"></app-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="addUpdateProduct()">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
+<ion-content>
+  <div class="d-flex-center">
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+      <h1>Bienvenido Usuario</h1>
+
+      <!-- Crear actividad -->
+      <ion-item class="custom-input" lines="none" color="warning">
+        <ion-icon color="primary" slot="start" name="checkmark-circle-outline"></ion-icon>
+        <ion-input label-placement="floating" type="text" autocomplete="text" label="Crear actividad" [formControl]="form.controls.createActivity"></ion-input>
+      </ion-item>
+      <div class="validators" *ngIf="form.controls.createActivity.errors && form.controls.createActivity.touched">
+        <div *ngIf="form.controls.createActivity.errors?.['required']">El campo es requerido</div>
+        <!-- Agrega validadores según sea necesario -->
+      </div>
+
+      <!-- Editar actividad -->
+      <ion-item class="custom-input" lines="none" color="warning">
+        <ion-icon color="primary" slot="start" name="create-outline"></ion-icon>
+        <ion-input label-placement="floating" type="text" autocomplete="text" label="Editar actividad" [formControl]="form.controls.editActivity"></ion-input>
+      </ion-item>
+      <div class="validators" *ngIf="form.controls.editActivity.errors && form.controls.editActivity.touched">
+        <!-- Agrega validadores según sea necesario -->
+      </div>
+
+      <!-- Eliminar actividad -->
+      <ion-item class="custom-input" lines="none" color="warning">
+        <ion-icon color="primary" slot="start" name="close-circle-outline"></ion-icon>
+        <ion-input label-placement="floating" type="text" autocomplete="text" label="Eliminar actividad" [formControl]="form.controls.deleteActivity"></ion-input>
+      </ion-item>
+      <div class="validators" *ngIf="form.controls.deleteActivity.errors && form.controls.deleteActivity.touched">
+        <!-- Agrega validadores según sea necesario -->
+      </div>
+
+      <!-- Todas las actividades -->
+      <ion-item class="custom-input" lines="none" color="warning">
+        <ion-icon color="primary" slot="start" name="list-circle-outline"></ion-icon>
+        <ion-input label-placement="floating" type="text" autocomplete="text" label="Todas las actividades" [formControl]="form.controls.allActivities"></ion-input>
+      </ion-item>
+      <div class="validators" *ngIf="form.controls.allActivities.errors && form.controls.allActivities.touched">
+        <!-- Agrega validadores según sea necesario -->
+      </div>
+
+      <!-- Botón de envío -->
+      <ion-button color="tertiary" expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid" fill="outline">
+        <ion-text color="dark">Ir</ion-text>
+        <ion-icon color="dark" slot="end" name="log-in-outline"></ion-icon>
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

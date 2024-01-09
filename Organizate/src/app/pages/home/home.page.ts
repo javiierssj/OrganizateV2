@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UtilsService } from 'src/app/services/utils.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AddUpdateProductComponent } from 'src/app/shared/components/add-update-product/add-update-product.component';
 
 @Component({
@@ -8,18 +9,29 @@ import { AddUpdateProductComponent } from 'src/app/shared/components/add-update-
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  form = new FormGroup({
+    createActivity: new FormControl('', [Validators.required]),
+    editActivity: new FormControl('', [Validators.required]),
+    deleteActivity: new FormControl('', [Validators.required]),
+    allActivities: new FormControl('', [Validators.required]),
+  });
 
   utilsSvc = inject(UtilsService);
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  addUpdateProduct(){
+  addUpdateProduct() {
     this.utilsSvc.presentModal({
       component: AddUpdateProductComponent,
       cssClass: 'add-update-modal'
     });
+  }
+
+  async submit() {
+    if (this.form.valid) {
+      console.log(this.form.value);
+    }
   }
 }
