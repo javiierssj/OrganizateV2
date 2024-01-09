@@ -11,14 +11,15 @@ export class SignUpPage implements OnInit {
     name: new FormControl('', [Validators.required, Validators.minLength(6)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    confirmPassword: new FormControl('', [Validators.required]),
   });
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor() {}
 
-  submit(){
+  ngOnInit() {}
+
+  submit() {
     console.log(this.form.value);
   }
-
 }
+  
