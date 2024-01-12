@@ -14,7 +14,7 @@ export class ApiService {
 
   createUser(user: User) {
     const url = `${this.apiUrl}/${this.endpoint}/register`;
-    const headers = new HttpHeaders().set('x-tenant-id', '6596099242fead134c26f4f9');
+    const headers = new HttpHeaders().set('x-tenant-id', '65a08aa8ca25da4080df7bc9');
     const body = {
       name: user.name,
       email: user.email,
@@ -28,7 +28,7 @@ export class ApiService {
 
   loginUser(email: string, password: string) {
     const url = `${this.apiUrl}/${this.endpoint}/login`;
-    const headers = new HttpHeaders().set('x-tenant-id', '6596099242fead134c26f4f9');
+    const headers = new HttpHeaders().set('x-tenant-id', '65a08aa8ca25da4080df7bc9');
     const body = {
       email,
       password
