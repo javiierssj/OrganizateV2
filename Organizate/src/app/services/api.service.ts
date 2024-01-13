@@ -22,7 +22,7 @@ export class ApiService {
     };
 
     const request = this.http.post(url, body, { headers });
-
+    console.log(request)
     return request;
   }
 
