@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { timeout } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class AuthPage implements OnInit {
   });
 
   utilsSvc = inject(UtilsService);
+  apiSvc = inject(ApiService)
 
   constructor() { }
 
@@ -23,7 +24,21 @@ export class AuthPage implements OnInit {
 
   async submit(){
     if(this.form.valid){
-      console.log(this.form.value);
+      const email = this.form.value.email as string;
+      const password = this.form.value.password as string;
+      
+      this.apiSvc.loginUser(email, password)
+      .subscribe(
+        response => {
+          this.utilsSvc.saveInLocalStorage('user', response);
+          this.utilsSvc.routerLink('main');
+          console.log('User autenthicated successfully:', response);
+        },
+        error => {
+          console.error('Error creating user:', error);
+        }
+      );
+      
     }
   }
 }
